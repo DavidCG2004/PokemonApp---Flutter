@@ -245,14 +245,29 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
   }
 
   Widget _infoGrid(List<_InfoItem> items) {
-    return GridView.count(
-      crossAxisCount: 2,
-      crossAxisSpacing: 12,
-      mainAxisSpacing: 12,
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      childAspectRatio: 3.8,
-      children: items.map((item) => _InfoTile(item: item)).toList(),
+    // Dividir en filas de 2 columnas sin GridView (evita el childAspectRatio)
+    final rows = <Widget>[];
+    for (var i = 0; i < items.length; i += 2) {
+      final left = items[i];
+      final right = i + 1 < items.length ? items[i + 1] : null;
+      rows.add(
+        Row(
+          children: [
+            Expanded(child: _InfoTile(item: left)),
+            const SizedBox(width: 12),
+            Expanded(
+              child: right != null
+                  ? _InfoTile(item: right)
+                  : const SizedBox.shrink(),
+            ),
+          ],
+        ),
+      );
+      if (i + 2 < items.length) rows.add(const SizedBox(height: 12));
+    }
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: rows,
     );
   }
 
@@ -273,15 +288,14 @@ class _InfoTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       decoration: BoxDecoration(
         color: AppColors.surfaceVariant,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Text(
             item.label.toUpperCase(),
@@ -292,7 +306,7 @@ class _InfoTile extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           ),
-          const SizedBox(height: 4),
+          const SizedBox(height: 6),
           Text(
             item.value,
             style: const TextStyle(
