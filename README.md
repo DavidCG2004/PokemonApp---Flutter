@@ -10,9 +10,9 @@ Una aplicación móvil/web desarrollada en Flutter que consume la [PokéAPI](htt
 
 | Lista principal | Búsqueda activa | Detalle |
 |:-:|:-:|:-:|
-| ![Lista](<img width="251" height="522" alt="image" src="https://github.com/user-attachments/assets/19a68c74-8ac2-4759-b836-9258d89e93df" />
-) | ![Búsqueda](<img width="372" height="571" alt="image" src="https://github.com/user-attachments/assets/0167aafb-1f08-4507-a62f-f2177011d093" />
-) | ![Detalle](<img width="315" height="560" alt="image" src="https://github.com/user-attachments/assets/a495b44f-8249-4602-a0aa-3a385d1fcaf4" />
+|(<img width="251" height="522" alt="image" src="https://github.com/user-attachments/assets/19a68c74-8ac2-4759-b836-9258d89e93df" />
+) |(<img width="372" height="571" alt="image" src="https://github.com/user-attachments/assets/0167aafb-1f08-4507-a62f-f2177011d093" />
+) |(<img width="315" height="560" alt="image" src="https://github.com/user-attachments/assets/a495b44f-8249-4602-a0aa-3a385d1fcaf4" />
 ) |
 
 ---
